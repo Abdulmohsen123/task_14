@@ -36,6 +36,7 @@ urlpatterns = [
     path('signout/',views.signout ,name='signout'),
     path('no-access/',views.no_access ,name='no-access'),
 
+    #path('api/list/', RestaurantListView.as_view(), name='api-list'),
     path('api/list/', RestaurantListView.as_view(), name='api-list'),
 ]
 
