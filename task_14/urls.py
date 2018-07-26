@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from restaurants import views
@@ -36,8 +36,8 @@ urlpatterns = [
     path('signout/',views.signout ,name='signout'),
     path('no-access/',views.no_access ,name='no-access'),
 
-    #path('api/list/', RestaurantListView.as_view(), name='api-list'),
     path('api/list/', RestaurantListView.as_view(), name='api-list'),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

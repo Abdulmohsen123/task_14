@@ -29,6 +29,16 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+   
+)
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,6 +52,13 @@ INSTALLED_APPS = [
     'api',
     'crispy_forms',
     'rest_framework',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.github',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -57,6 +74,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'task_14.urls'
+
+SITE_ID = 1
 
 TEMPLATES = [
     {
