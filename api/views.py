@@ -13,12 +13,6 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
 # class RestaurantListView(viewsets.ModelViewSet):
 class RestaurantListView(views.APIView):
-        #queryset = Restaurant.objects.all()
-        #serializer_class = RestaurantSerializer
-	# def list(self, request):
-	# 	queryset = Restaurant.objects.all()
-	# 	serializer = RestaurantSerializer(queryset, many=True)
-	# 	return Response(serializer.data)
 
 	def get(self, request, format=None):
 		restaurants = Restaurant.objects.all()
