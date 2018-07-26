@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from restaurants import views
-from api.views import RestaurantListView
+from api.views import RestaurantListView, get_all_restaurants
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +38,8 @@ urlpatterns = [
 
     path('api/list/', RestaurantListView.as_view(), name='api-list'),
     path('accounts/', include('allauth.urls')),
+
+    path('request/', get_all_restaurants, name = 'requests')
 ]
 
 if settings.DEBUG:
